@@ -15,6 +15,9 @@ const Feedback = () => {
     //destructure state variables:
 
     const { name, email, message, phone, uploadedFiles, buttonText, uploadPhotosButtonText } = values
+    
+    //destructure env variables:
+    const { REACT_APP_API, REACT_APP_CLOUDINARY_CLOUD_NAME, REACT_APP_CLOUDINARY_UPLOAD_SECRET } = process.env
 
     //event handlers:
     const handleChange = name => event => {
