@@ -17,12 +17,17 @@ const Feedback = () => {
     const { name, email, message, phone, uploadedFiles, buttonText, uploadPhotosButtonText } = values
 
     //event handlers:
-    const handleChange = () => {
-      console.log('handle change!')
+    const handleChange = name => event => {
+      setValues({...values, [name]: event.target.value})
     }
 
-    const handleSubmit = () => {
-      console.log('handle submit!')
+    const handleSubmit = (event) => {
+      event.preventDefault()
+      setValues({...values, buttonText: '...sending'})
+      
+      // send to backend for email
+
+      console.table({name, email, phone, message, uploadedFiles})
     }
 
    
