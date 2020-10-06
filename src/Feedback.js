@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import axios from 'axios'
 
 const Feedback = () => {
 
@@ -30,7 +31,19 @@ const Feedback = () => {
       
       // send to backend for email
 
-      console.table({name, email, phone, message, uploadedFiles})
+      // console.table({name, email, phone, message, uploadedFiles})
+
+      axios({
+        method: 'POST',
+        url: `${REACT_APP_API}/feedback`,
+        data: {name, email, phone, message, uploadedFiles}
+      })
+      .then(response => {
+        console.log('feedback submit response', response)
+      })
+      .catch(error =>{
+        console.log('feedback submit error', error.response)
+      })
     }
 
     const uploadWidget = () => {
